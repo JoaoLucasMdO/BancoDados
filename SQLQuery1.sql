@@ -33,7 +33,7 @@ salario float
 
 create table estado(
 cod_estado varchar(2) not null,
-nome_estado varchar(3)
+nome_estado varchar(30)
 );
 
 alter table cidade add primary key(cod_cidade);
@@ -50,19 +50,69 @@ alter table estado add primary key(cod_estado);
 
 alter table cidade add foreign key(cod_estado) references estado(cod_estado);
 
-
-insert into Cidade values ('1','Votorantim','1');
-
-insert into estado values ('1','SP');
+--Cidades
+insert into Cidade values ('1','Votorantim','SP');
 
 insert into cidade values('2','Itu','NN');
 
-insert into estado values ('NN','Não');
+insert into Cidade values ('3','Ribeirão Preto','SP');
 
-delete from cidade where cod_cidade like '1';
+insert into Cidade values ('4','Ubatuba','SP');
 
-select cod_cidade, nome_cidade, nome_estado
-from Cidade, estado;
+insert into Cidade values ('5','Santos','SP');
+
+insert into Cidade values ('6','Acrelândia','AC');
+
+insert into Cidade values ('7','Macapá','AP');
+
+insert into Cidade values ('8','Salvador','BA');
+
+insert into Cidade values ('9','São Luís','MA');
+
+insert into Cidade values ('10','Belo Horizonte','MG');
+
+insert into Cidade values ('11','Maricá','RJ');
+
+insert into Cidade values ('12','Novo Alegre','TO');
+
+insert into Cidade values ('13','Itapira','SP');
+
+--Estados
+insert into estado values ('NN','Não Cadasstrado');
+
+insert into estado values ('SP','São Paulo');
+
+insert into estado values ('AC','Acre');
+
+insert into estado values ('AP','Amapá');
+
+insert into estado values ('BA','Bahia');
+
+insert into estado values ('MA','Maranhão');
+
+insert into estado values ('MG','Minas Gerais');
+
+insert into estado values ('RJ','Rio de Janeiro');
+
+insert into estado values ('TO','Tocantins');
+
+insert into estado values ('SE','Sergipe');
+
+insert into estado values ('ES','Espírito Santo');
+
+insert into estado values ('GO','Goiás');
+
+
+update Cidade set cod_estado = 'SP' where cod_estado = 'NN'
+
+
+delete from cidade where nome_cidade = 'Itapira';
+
+select*
+from Cidade where cod_estado = 'SP';
+
+select*
+from Cidade
 
 drop table Cliente;
 
