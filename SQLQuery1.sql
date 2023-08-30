@@ -1,3 +1,5 @@
+use BDTeste;
+
 create table Cliente(
 Cod_Cli int constraint Pk_Cliente primary key not null,
 Nome_Cli varchar(40) not null,

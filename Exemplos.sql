@@ -1,3 +1,4 @@
+use Exemplos;
 --Exemplo 01
 
 --Tabela 01 do Exemplo 01
