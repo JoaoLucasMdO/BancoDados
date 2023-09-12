@@ -44,3 +44,16 @@ num_pedido int references pedido,
 cod_produto int references produto,
 quantidade int,
 primary key(num_pedido, cod_produto) )
+
+create table cidade(
+codCidade int identity(1,1) not null primary key,
+nomeCidade varchar(40),
+codEstado varchar(2)
+);
+
+create table empregado(
+numMatricula int identity(1,1) not null primary key,
+nome varchar(50),
+dataAdmissao datetime,
+salario float
+);
