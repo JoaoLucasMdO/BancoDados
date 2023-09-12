@@ -1,3 +1,5 @@
+
+--Inserts Clientes---------------------------------------------
 insert into cliente values (0001,'Marcelo Cruz'        ,'Rua Brasil, 35'                ,'Jundiaí'        ,13124579,'SP','7464563762','53425364');
 insert into cliente values (0002,'Jose da Silva'       ,'Rua Argentina, 23'             ,'Buenos Aires'   ,45876548,'TY','4587412637','452145285');
 insert into cliente values (0003,'Mia Bini'            ,'Alameda cavalcante, 12'        ,'Pindamonhangaba',45269887,'SP','1542845798','687286464');
@@ -20,6 +22,7 @@ insert into cliente values (0019,'Karina Bonamiga'     ,'Rua dos Expedicionários
 insert into cliente values (0020,'Vanderlei Luís Silva','Rua Brasil, 75'                ,'São Paulo'      ,22245788,'SP','65498495158','6549874988');
 
 
+--Insert Vendedor-----------------------------------------------
 insert into vendedor values (0001,'Sandra Bullock'    ,'A', 200);
 insert into vendedor values (0002,'Keanu Reeves'      ,'A', 500);
 insert into vendedor values (0003,'Matt Damon'        ,'B',1000);
@@ -41,6 +44,8 @@ insert into vendedor values (0018,'Carolina Dieckmann','D',1200);
 insert into vendedor values (0019,'Giovana Antonelli' ,'A', 700);
 insert into vendedor values (0020,'Kevin Costner'     ,'B', 600);
 
+
+--Insert Produto-----------------------------------------------------
 insert into produto values (0001,'Manteiga diet','UN',  3.30);
 insert into produto values (0002,'Toddynho'     ,'UN',  1.23);
 insert into produto values (0003,'Lapis de cor' ,'CX',  0.56);
@@ -63,6 +68,7 @@ insert into produto values (0019,'Água'         ,'LT', 80.50);
 insert into produto values (0020,'Telefone'     ,'UN', 60.00);
 
 
+--Insert Pedido---------------------------------------------------------
 insert into pedido values (0001,'22/01/25', '22/01/26',0002,0003);
 insert into pedido values (0002,'22/05/10','22/10/13',0002,0001);
 insert into pedido values (0003,'22/06/02','22/07/14',0004,0003);
@@ -85,7 +91,7 @@ insert into pedido values (0019,'22/06/08','22/09/04',0014,0016);
 insert into pedido values (0020,'22/07/18','22/09/19',0018,0017);
 
 
-
+--Insert Item_Pedido------------------------------------------------
 insert into item_pedido values (0001,0002, 13);
 insert into item_pedido values (0001,0003,  3);
 insert into item_pedido values (0001,0001,  6);
@@ -112,3 +118,39 @@ insert into item_pedido values (0009,0016, 45);
 insert into item_pedido values (0009,0019,120);
 
 select * from item_pedido
+
+--Insert Cidade-------------------------------------------------------
+insert into cidade(nomeCidade, codEstado) values('Votorantim', 'SP');
+insert into cidade(nomeCidade, codEstado) values('Sorocaba', 'SP');
+insert into cidade(nomeCidade, codEstado) values('Rio de Janeiro', 'RJ');
+insert into cidade(nomeCidade, codEstado) values('Paraty', 'RJ');
+insert into cidade(nomeCidade, codEstado) values('Belo Horizonte', 'MG');
+
+
+--Insert Empregado--------------------------------------------------
+insert into empregado(nome, dataAdmissao, salario) values('Henrique', '22/05/18', 2780.00);
+insert into empregado(nome, dataAdmissao, salario) values('Jorge', '11/08/02', 4500.00);
+insert into empregado(nome, dataAdmissao, salario) values('Matheus', '05/12/05', 5930.33);
+insert into empregado(nome, dataAdmissao, salario) values('Pedro', '29/04/09', 1820.80);
+insert into empregado(nome, dataAdmissao, salario) values('Pablo', '07/11/07', 2480.25);
+
+
+
+--Selects-------------------------------------------------------------------------------
+select*
+from empregado;
+
+select*
+from cidade;
+
+select distinct codEstado
+from cidade;
+
+select codEstado,nomeCidade
+from cidade;
+
+select 'Código do Cliente', cod_cliente,'Nome do Cliente', nome_cliente
+from cliente;
+
+select cod_cliente as 'Código do Cliente', nome_cliente as 'Nome do Cliente'
+from cliente
