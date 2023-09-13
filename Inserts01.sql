@@ -153,4 +153,10 @@ select 'Código do Cliente', cod_cliente,'Nome do Cliente', nome_cliente
 from cliente;
 
 select cod_cliente as 'Código do Cliente', nome_cliente as 'Nome do Cliente'
-from cliente
+from cliente;
+
+select nome, salario, salario+300 aumento_salario
+from empregado;
+
+select 'Funcionario: ' +nome+ ' | Salário:' + convert(varchar, salario), salario, nome
+from empregado;
