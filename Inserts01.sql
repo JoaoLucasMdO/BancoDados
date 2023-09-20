@@ -188,6 +188,7 @@ from produto
 where Valor_unitario between 0.32 and 2.00;
 
 --Cadeias de caracteres-------------------------------------------------------------------
+
 select primeiro_nome, salario, cod_setor
 from Funcionario
 where primeiro_nome like '%M%';
@@ -198,7 +199,57 @@ where primeiro_nome like '%M%';
 
 select cod_produto, descricao, unidade
 from produto
-where unidade like 'K%'
+where unidade like 'K%';
+
+select primeiro_nome, ultimo_nome
+from Funcionario
+where ultimo_nome like 'Oliv%';
+
+select primeiro_nome, ultimo_nome
+from Funcionario
+where ultimo_nome like '%Silva';
+
+select primeiro_nome, ultimo_nome
+from Funcionario
+where ultimo_nome like '%liv%';
+
+select primeiro_nome, ultimo_nome
+from Funcionario
+where primeiro_nome like 'J___';
+
+select primeiro_nome, ultimo_nome
+from Funcionario
+where primeiro_nome like '____o';
+
+--In e not In --------------------------------------------------------------------------
+
+select nome_vendedor
+from vendedor
+where faixa_comissao in ('A', 'B');
+
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where cod_setor in ('1', '2', '4');
+
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where cod_setor not in ('1', '2', '4');
+
+select*
+from cliente
+where IE is null;
+
+select*
+from cliente
+where IE is not null;
+
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where email is null;
+
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where email is not null;
 
 --Inserts do Exercicío 01---------------------------------------------------------------
 
