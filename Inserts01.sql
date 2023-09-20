@@ -251,6 +251,17 @@ select primeiro_nome, salario, cod_setor
 from Funcionario
 where email is not null;
 
+
+--And e Or-------------------------------------------------------------------------------
+
+select nrmatricula, ultimo_nome, salario
+from Funcionario
+where salario > 1000 and nrmatricula >= 3
+
+select*
+from Funcionario
+where salario > 2500 or cod_setor = 1;
+
 --Inserts do Exercicío 01---------------------------------------------------------------
 
 --Inserts do Setor----------------------------------------------------------------------
@@ -262,42 +273,35 @@ insert into Setor(nome_setor) values('Produção');
 insert into Setor(nome_setor) values('Compras');
 
 --Inserts do Funcionario----------------------------------------------------------------
---1--
+
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('José', 'Oliveira', 'José@gmail.com', '99637456890', '05/12/89', 3780.00, 1);
 
---2--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Rodrigo', 'Silva', 'rodrigo@gmail.com', '98518355780', '15/08/90', 2790.00, 2);
 
---3--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Maria', 'Olivia', 'maria@gmail.com', '90526345781', '11/02/01', 2789.00, 2);
 
---4--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Carlos', 'Oliveira', 'carlos@gmail.com', '96748634120', '22/04/00', 1800.00, 3);
 
---5--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Mauricio', 'Silva', 'mauricio@gmail.com', '98845673242', '08/06/97', 4285.00, 4);
 
---6--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Pedro', 'Pablo', 'pedro@gmail.com', '98812385672', '18/02/91', 1830.00, 5);
 
---7--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Larissa', 'Kimberly', 'larissa@gmail.com', '97458987451', '09/05/95', 1970.00, 6);
 
---8--
 insert into Funcionario(primeiro_nome, ultimo_nome, 
 email, telefone, data_admissao, salario, cod_setor) 
 values ('Paolla', 'Silva', 'paolla@gmail.com', '95856981345', '19/02/93', 5080.40, 1);
