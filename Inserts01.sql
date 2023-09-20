@@ -1,4 +1,3 @@
-
 --Inserts Clientes---------------------------------------------
 insert into cliente values (0001,'Marcelo Cruz'        ,'Rua Brasil, 35'                ,'Jundiaí'        ,13124579,'SP','7464563762','53425364');
 insert into cliente values (0002,'Jose da Silva'       ,'Rua Argentina, 23'             ,'Buenos Aires'   ,45876548,'TY','4587412637','452145285');
@@ -134,8 +133,6 @@ insert into empregado(nome, dataAdmissao, salario) values('Matheus', '05/12/05',
 insert into empregado(nome, dataAdmissao, salario) values('Pedro', '29/04/09', 1820.80);
 insert into empregado(nome, dataAdmissao, salario) values('Pablo', '07/11/07', 2480.25);
 
-
-
 --Selects-------------------------------------------------------------------------------
 select*
 from empregado;
@@ -160,3 +157,113 @@ from empregado;
 
 select 'Funcionario: ' +nome+ ' | Salário:' + convert(varchar, salario), salario, nome
 from empregado;
+
+select num_pedido, cod_produto, quantidade
+from item_pedido
+where quantidade = 45;
+
+select nrmatricula, primeiro_nome, ultimo_nome, cod_setor
+from Funcionario
+where cod_setor = 1;
+
+select primeiro_nome, salario
+from Funcionario
+where salario < 2500;
+
+select primeiro_nome, salario
+from Funcionario
+where salario > 2500;
+
+--Betweens----------------------------------------------------
+select primeiro_nome, salario
+from Funcionario
+where salario between 1500 and 2000;
+
+select primeiro_nome, salario
+from Funcionario
+where salario not between 1500 and 2000;
+
+select cod_produto, descricao
+from produto
+where Valor_unitario between 0.32 and 2.00;
+
+--Cadeias de caracteres-------------------------------------------------------------------
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where primeiro_nome like '%M%';
+
+select primeiro_nome, salario, cod_setor
+from Funcionario
+where primeiro_nome like '%M%';
+
+select cod_produto, descricao, unidade
+from produto
+where unidade like 'K%'
+
+--Inserts do Exercicío 01---------------------------------------------------------------
+
+--Inserts do Setor----------------------------------------------------------------------
+insert into Setor(nome_setor) values('TI');
+insert into Setor(nome_setor) values('Financeiro');
+insert into Setor(nome_setor) values('RH');
+insert into Setor(nome_setor) values('Comercial');
+insert into Setor(nome_setor) values('Produção');
+insert into Setor(nome_setor) values('Compras');
+
+--Inserts do Funcionario----------------------------------------------------------------
+--1--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('José', 'Oliveira', 'José@gmail.com', '99637456890', '05/12/89', 3780.00, 1);
+
+--2--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Rodrigo', 'Silva', 'rodrigo@gmail.com', '98518355780', '15/08/90', 2790.00, 2);
+
+--3--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Maria', 'Olivia', 'maria@gmail.com', '90526345781', '11/02/01', 2789.00, 2);
+
+--4--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Carlos', 'Oliveira', 'carlos@gmail.com', '96748634120', '22/04/00', 1800.00, 3);
+
+--5--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Mauricio', 'Silva', 'mauricio@gmail.com', '98845673242', '08/06/97', 4285.00, 4);
+
+--6--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Pedro', 'Pablo', 'pedro@gmail.com', '98812385672', '18/02/91', 1830.00, 5);
+
+--7--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Larissa', 'Kimberly', 'larissa@gmail.com', '97458987451', '09/05/95', 1970.00, 6);
+
+--8--
+insert into Funcionario(primeiro_nome, ultimo_nome, 
+email, telefone, data_admissao, salario, cod_setor) 
+values ('Paolla', 'Silva', 'paolla@gmail.com', '95856981345', '19/02/93', 5080.40, 1);
+
+
+
+
+
+--Selects do Exercicío 01----------------------------------------------------------------
+select*
+from Setor;
+
+select*
+from Funcionario;
+
+select distinct cod_setor
+from Funcionario;
+
+select primeiro_nome + ' ' + ultimo_nome  +  ', ' + convert(varchar, cod_setor) as 'Empregado e Setor'
+from Funcionario;

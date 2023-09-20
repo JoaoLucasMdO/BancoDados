@@ -57,3 +57,22 @@ nome varchar(50),
 dataAdmissao datetime,
 salario float
 );
+
+--Creates do Exercício 01---------------------------------------------------------------------
+ create table Setor(
+ cod_setor int identity(1,1) not null primary key,
+ nome_setor varchar(30)
+ );
+
+create table Funcionario(
+nrmatricula int identity(1,1) not null primary key,
+primeiro_nome varchar(20),
+ultimo_nome varchar(50),
+email varchar(200),
+telefone varchar(20),
+data_admissao datetime,
+salario float,
+cod_setor int not null constraint FK_codSetor foreign key references Setor(cod_setor)
+ );
+
+ drop table Funcionario;
