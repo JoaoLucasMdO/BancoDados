@@ -282,7 +282,17 @@ order by nome_vendedor desc;
 select*
 from Funcionario
 where cod_setor not in (4, 5)
+order by cod_setor;
+
+select*
+from Funcionario
+where cod_setor not in (4, 5)
 order by cod_setor desc;
+
+select*
+from Funcionario
+where cod_setor not in (4, 5)
+order by cod_setor, primeiro_nome;
 
 --Inserts do Exercicío 01---------------------------------------------------------------
 
