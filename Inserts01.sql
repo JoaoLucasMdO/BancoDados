@@ -262,6 +262,28 @@ select*
 from Funcionario
 where salario > 2500 or cod_setor = 1;
 
+select descricao
+from produto
+where unidade = 'M' and Valor_unitario = 1.05;
+
+select descricao
+from produto
+where unidade = 'UN' and Valor_unitario = 4;
+
+--Order by----------------------------------------------------------------------------------
+select nome_vendedor, salario_fixo
+from vendedor
+order by nome_vendedor;
+
+select nome_vendedor, salario_fixo
+from vendedor
+order by nome_vendedor desc;
+
+select*
+from Funcionario
+where cod_setor not in (4, 5)
+order by cod_setor desc;
+
 --Inserts do Exercicío 01---------------------------------------------------------------
 
 --Inserts do Setor----------------------------------------------------------------------
