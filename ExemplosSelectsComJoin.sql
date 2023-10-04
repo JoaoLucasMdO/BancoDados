@@ -103,3 +103,16 @@ where Unidade = 'KG');
 select*
 from produto
 where Unidade = 'KG';
+
+delete from vendedor
+where faixa_comissao is null;
+
+select *
+from vendedor
+where faixa_comissao is null;
+
+DELETE FROM pedido 
+FROM produto P, item_pedido I
+WHERE I.num_pedido = pedido.num_pedido AND
+P.cod_produto = I.cod_produto AND
+valor_unitario < 0.20
