@@ -76,3 +76,4 @@ cod_setor int not null constraint FK_codSetor foreign key references Setor(cod_s
  );
 
  drop table Funcionario;
+
