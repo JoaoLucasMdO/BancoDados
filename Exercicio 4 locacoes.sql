@@ -17,3 +17,4 @@ select filme.FILME, valor_locacao, (valor_locacao * 10/100) as 'Valor de descont
 (VALOR_LOCACAO -(valor_locacao * 10/100)) as 'Valor final'
 from FILME
 
+
