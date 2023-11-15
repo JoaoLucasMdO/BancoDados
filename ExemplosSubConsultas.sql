@@ -110,9 +110,110 @@ VALUES
 				  from pedido
 				  where pedido.ProdutoID = Produto.ProdutoID);
 
-
+	-----------------------Exemplo 06---------------------------------------------------------------
 	select nomeProduto
 	from produto
 	where produtoId in (select produtoId
 						from pedido
 						where pedidoId in (1,3));
+
+	-----------------------Exemplo 07---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where CategoriaID = (select CategoriaID
+						 from categoria
+						 where NomeCategoria = 'Eletrônicos');
+
+	-----------------------Exemplo 08---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where ProdutoID in (select ProdutoID
+						from pedido
+						where year (dataPedido) = 2023 and month (dataPedido) = 1);
+
+	-----------------------Exemplo 09---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where ProdutoID in (Select produtoId 
+						from pedido);
+
+	-----------------------Exemplo 10---------------------------------------------------------------
+	select nomeCategoria
+	from Categoria
+	where CategoriaID in (select CategoriaID
+						  from produto
+						  group by CategoriaID having count(*) >=2);
+
+	-----------------------Exemplo 11---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where CategoriaID in (select CategoriaID
+						  from Categoria
+						  where NomeCategoria like 'E%');
+
+	-----------------------Exemplo 12---------------------------------------------------------------
+	select nomeCategoria
+	from categoria
+	where CategoriaID in (select CategoriaID
+						  from produto
+						  where ProdutoID in (select ProdutoID
+											  from pedido
+											  where year(DataPedido) = 2023));
+
+	-----------------------Exemplo 13---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where preco = (select max)
+
+	-----------------------Exemplo 14---------------------------------------------------------------
+	select c.NomeCategoria, (select count(*)
+	from produto
+	where CategoriaID = c.CategoriaId) as NumeroPodutos
+	from Categoria c;
+
+	-----------------------Exemplo 15---------------------------------------------------------------
+	select nomeCategoria
+	from Categoria
+	where categoriaID in (select CategoriaID
+						  from produto
+						  where preco > 1000)
+						  union
+						  select nomeCategoria
+						  from categoria
+						  where CategoriaID in (select produto.CategoriaID
+												from produto join pedido on produto.ProdutoID = pedido.ProdutoID);
+
+	-----------------------Exemplo 16---------------------------------------------------------------
+	select nomeProduto
+	from produto
+	where preco < 100
+	union all
+	select nomeProduto
+	from produto
+	where preco > 100;
+
+	-----------------------Exemplo 17---------------------------------------------------------------
+	select nomeCategoria
+	from categoria
+	where CategoriaID in (select CategoriaID 
+						  from produto
+						  where preco > 1000)
+						  intersect
+						  select nomeCategoria
+						  from categoria
+						  where categoriaId in (select produto.CategoriaID
+											    from produto join pedido on produto.ProdutoID = pedido.ProdutoID);
+
+	-----------------------Exemplo 18---------------------------------------------------------------
+	select nomeCategoria
+	from categoria
+	where CategoriaID in (select CategoriaID 
+						  from produto
+						  where preco > 100)
+						  except
+						  select nomeCategoria
+						  from categoria
+						  where categoriaId in (select produto.CategoriaID
+											    from produto join pedido on produto.ProdutoID = pedido.ProdutoID);
+
+	-----------------------Exemplo 19---------------------------------------------------------------
