@@ -105,4 +105,26 @@ END
 
 --Na execução:
 EXEC AtualizarPrecoProduto 14, 2500    --ou
-EXEC AtualizarPrecoProduto @ProdutoID = 14, @NovoPreco = 2500
+EXEC AtualizarPrecoProduto @ProdutoID = 14, @NovoPreco = 2500----------------------------------- Exemplo 07 Procedure -------------------------------------------------CREATE PROCEDURE ListarProdutosPorCategoria
+@Categoria NVARCHAR(50)
+AS
+BEGIN
+	SELECT ProdutoID, NomeProduto, Preco
+	FROM Produto
+	WHERE CategoriaID = (SELECT CategoriaID FROM Categoria
+	WHERE NomeCategoria = @Categoria)
+ENDEXEC ListarProdutosPorCategoria 'Roupas'
+
+----------------------------------- Exemplo 08 Procedure -------------------------------------------------
+
+CREATE PROCEDURE CalcularValorTotalPedido
+@PedidoID INT
+AS
+BEGIN
+	SELECT ValorTotal = SUM(Preco)
+	FROM Produto
+	WHERE ProdutoID IN (SELECT ProdutoID FROM Pedido
+	WHERE PedidoID = @PedidoID)
+END
+
+EXEC CalcularValorTotalPedido @PedidoId = 8
